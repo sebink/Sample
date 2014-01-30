@@ -15,7 +15,7 @@ class IndexPageChecking < Test::Unit::TestCase
 
     @driver = Selenium::WebDriver.for(
         :remote,
-        :url => "http://sebin:91da8840-f25b-4474-a28e-53e25a467788@ondemand.saucelabs.com:80/wd/hub",
+        :url => "http://btsauce:3d284ce4-ce68-4128-acc2-da28928ff141@ondemand.saucelabs.com:80/wd/hub",
         :desired_capabilities => caps)
 
     #@driver.manage().window().maximize()
