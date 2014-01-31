@@ -1,5 +1,5 @@
 require 'rubygems'
-gem "selenium-webdriver"
+#gem "selenium-webdriver"
 gem "test-unit"
 require 'test/unit'
 
