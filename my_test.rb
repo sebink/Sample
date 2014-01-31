@@ -1,5 +1,6 @@
 require 'rubygems'
 require "selenium-webdriver"
+require 'spec_helper'
 gem "test-unit"
 require "test/unit"
 
