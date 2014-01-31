@@ -1,7 +1,7 @@
 require 'rubygems'
 #gem "selenium-webdriver"
-gem "test-unit"
-require 'test/unit'
+#gem "test-unit"
+#require 'test/unit'
 
 
 class IndexPageChecking < Test::Unit::TestCase
