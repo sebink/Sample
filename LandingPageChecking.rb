@@ -1,4 +1,4 @@
-#require "json"
+require "json"
 require 'rubygems'
 require "selenium-webdriver"
 require "rspec"
