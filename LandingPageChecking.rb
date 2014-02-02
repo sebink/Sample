@@ -14,10 +14,7 @@ describe "LandingPageChecking" do
     #...........................For SauceLab..........................
 
 
-    caps = Selenium::WebDriver::Remote::Capabilities.firefox
-    caps['platform'] = "Windows 8.1"
-    caps['version'] = "26"
-    caps[:name] = "Landing Page"
+    caps = Selenium::WebDriver::Remote::Capabilities
 
     @driver = Selenium::WebDriver.for(
         :remote,
