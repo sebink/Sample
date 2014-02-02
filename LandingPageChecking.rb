@@ -14,7 +14,10 @@ describe "LandingPageChecking" do
     #...........................For SauceLab..........................
 
 
-    caps = Selenium::WebDriver::Remote::Capabilities
+    caps = Selenium::WebDriver::Remote::Capabilities.firefox
+    caps['platform'] = "Windows 8.1"
+    caps['version'] = "26"
+    caps[:name] = "Landing Page"
 
     @driver = Selenium::WebDriver.for(
         :remote,
@@ -52,7 +55,7 @@ describe "LandingPageChecking" do
 
     @driver.get(@base_url + "/b/site/index.html")
 
-    verify { (@driver.find_element(:xpath, "//*[@id='topBar']/div/div[1]/ul[2]/li[3]/a").text).should == "SIGN UP" }
+    verify { (@driver.find_element(:xpath, "//*[@id='topBar']/div/div[1]/ul[2]/li[3]/a").text).should == "SIGN UP123" }
     verify { (@driver.find_element(:xpath, "//*[@id='topBar']/div/div[1]/ul[2]/li[4]/a").text).should == "LOG IN" }
     end
   
