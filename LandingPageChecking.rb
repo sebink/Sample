@@ -13,7 +13,7 @@ describe "LandingPageChecking" do
 
     #...........................For SauceLab..........................
 
-
+=begin
     caps = Selenium::WebDriver::Remote::Capabilities.firefox
     caps['platform'] = "Windows 8.1"
     caps['version'] = "26"
@@ -28,9 +28,9 @@ describe "LandingPageChecking" do
     @accept_next_alert = true
     @driver.manage.timeouts.implicit_wait = 30
     @verification_errors = []
-
+=end
 #............................For Local run ..........................
-=begin
+
     @driver = Selenium::WebDriver.for :firefox
     @driver.manage().window().maximize()
 
@@ -38,9 +38,7 @@ describe "LandingPageChecking" do
     @accept_next_alert = true
     @driver.manage.timeouts.implicit_wait = 30
     @verification_errors = []
-    ins = ApplicationHelper.new
-    puts(ins.driver)
-=end
+    
 
   end
   
