@@ -53,6 +53,9 @@ describe "LandingPageChecking" do
 
     @driver.get(@base_url + "/b/site/index.html")
     
+    sleep 10
+    puts(@driver.title)
+    
      (@driver.find_element(:xpath, "//*[@id='topBar']/div/div[1]/ul[2]/li[3]/a").text).should == "SIGN UP"
 (@driver.find_element(:xpath, "//*[@id='topBar']/div/div[1]/ul[2]/li[4]/a").text).should == "LOG IN"
 
