@@ -51,6 +51,7 @@ end
 
     puts('.....................Login checking.....................')
     @driver.get(@base_url + "/b/site/index.html")
+    sleep 30
     @driver.find_element(:link, "LOG IN").click
     @driver.find_element(:name, "client[email]").clear
     @driver.find_element(:name, "client[email]").send_keys "sebin@blutrumpet.com"
