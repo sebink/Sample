@@ -51,8 +51,9 @@ end
 
     puts('.....................Login checking.....................')
     @driver.get(@base_url + "/b/site/index.html")
-    sleep 30
-    @driver.find_element(:link, "LOG IN").click
+    sleep 10
+    @driver.find_element(:css, ".greyBtn.stndBtn.loginButton").click
+    
     @driver.find_element(:name, "client[email]").clear
     @driver.find_element(:name, "client[email]").send_keys "sebin@blutrumpet.com"
     @driver.find_element(:name, "client[password]").click
