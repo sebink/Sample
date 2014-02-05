@@ -1,46 +1,92 @@
-require "rubygems"
-gem "rspec"
-gem "selenium-client"
-require "selenium/client"
-#require "selenium/rspec/spec_helper"
-#require "spec/test/unit"
+require "json"
+require 'rubygems'
+require "selenium-webdriver"
+require "rspec"
+include RSpec::Expectations
+#require_relative './lib/common.rb'
+#require './spec/sauce_helper'
 
-describe "6666666" do
-  attr_reader :selenium_driver
-  alias :page :selenium_driver
 
-  before(:all) do
-    @verification_errors = []
-    @selenium_driver = Selenium::Client::Driver.new \
-      :host => "localhost",
-      :port => 4444,
-      :browser => "*chrome",
-      :url => "http://uat-portal.blutrumpet.com/",
-      :timeout_in_second => 60
-  end
+describe "LandingPageChecking" do
 
   before(:each) do
-    @selenium_driver.start_new_browser_session
+
+    #...........................For SauceLab..........................
+
+=begin
+    caps = Selenium::WebDriver::Remote::Capabilities.firefox
+    caps['platform'] = "Windows 8.1"
+    caps['version'] = "26"
+    caps[:name] = "Landing Page"
+
+    @driver = Selenium::WebDriver.for(
+        :remote,
+        :url => "http://btsauce:3d284ce4-ce68-4128-acc2-da28928ff141@ondemand.saucelabs.com:80/wd/hub",
+        :desired_capabilities => caps)
+
+    @base_url = "http://uat-portal.blutrumpet.com/"
+    @accept_next_alert = true
+    @driver.manage.timeouts.implicit_wait = 30
+    @verification_errors = []
+=end
+#............................For Local run ..........................
+
+    @driver = Selenium::WebDriver.for :firefox
+    @driver.manage().window().maximize()
+
+    @base_url = "http://uat-portal.blutrumpet.com/"
+    @accept_next_alert = true
+    @driver.manage.timeouts.implicit_wait = 30
+    @verification_errors = []
+    
+
   end
   
-  append_after(:each) do
-    @selenium_driver.close_current_browser_session
+  after(:each) do
+    @driver.quit
     @verification_errors.should == []
   end
+
+  it "test_landing_page_checking" do
+
+    puts('.....................Checking Landing Page.....................')
+
+    @driver.get(@base_url + "/b/site/index.html")
+
+    verify { (@driver.find_element(:xpath, "//*[@id='topBar']/div/div[1]/ul[2]/li[3]/a").text).should == "SIGN UP" }
+    verify { (@driver.find_element(:xpath, "//*[@id='topBar']/div/div[1]/ul[2]/li[4]/a").text).should == "LOG IN" }
+    end
   
-  it "test_6666666" do
-    page.open "/b/site/index.html"
-    page.click "link=Log In"
-    page.click "link=Sign Up"
-    begin
-        ("Sign Up").should == page.get_text("link=Sign Up")
-    rescue ExpectationNotMetError
-        @verification_errors << $!
+  def element_present?(how, what)
+    @driver.find_element(how, what)
+    true
+  rescue Selenium::WebDriver::Error::NoSuchElementError
+    false
+  end
+
+  def alert_present?()
+    @driver.switch_to.alert
+    true
+  rescue Selenium::WebDriver::Error::NoAlertPresentError
+    false
+  end
+
+  def verify(&blk)
+    yield
+  rescue ExpectationNotMetError => ex
+    @verification_errors << ex
+  end
+
+  def close_alert_and_get_its_text(how, what)
+    alert = @driver.switch_to().alert()
+    alert_text = alert.text
+    if (@accept_next_alert) then
+      alert.accept()
+    else
+      alert.dismiss()
     end
-    begin
-        ("Log In").should == page.get_text("link=Log In")
-    rescue ExpectationNotMetError
-        @verification_errors << $!
-    end
+    alert_text
+  ensure
+    @accept_next_alert = true
   end
 end
