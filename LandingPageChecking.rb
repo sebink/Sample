@@ -2,6 +2,7 @@ require "json"
 require 'rubygems'
 require "selenium-webdriver"
 require "rspec"
+require 'headless'
 include RSpec::Expectations
 #require_relative './lib/common.rb'
 #require './spec/sauce_helper'
@@ -30,6 +31,9 @@ describe "LandingPageChecking" do
     @verification_errors = []
 =end
 #............................For Local run ..........................
+
+headless = Headless.new
+headless.start
 
     @driver = Selenium::WebDriver.for :firefox
     @driver.manage().window().maximize()
