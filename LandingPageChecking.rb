@@ -2,8 +2,8 @@ require "rubygems"
 gem "rspec"
 gem "selenium-client"
 require "selenium/client"
-require "selenium/rspec/spec_helper"
-require "spec/test/unit"
+#require "selenium/rspec/spec_helper"
+#require "spec/test/unit"
 
 describe "6666666" do
   attr_reader :selenium_driver
