@@ -32,23 +32,26 @@ describe "LandingPageChecking" do
 =end
 #............................For Local run ..........................
 
-headless = Headless.new
-headless.start
+Headless.ly do
+  @driver = Selenium::WebDriver.for :firefox
+  @driver.navigate.to 'http://uat-portal.blutrumpet.com/'
+  puts @driver.title 
+end
 
-    @driver = Selenium::WebDriver.for :firefox
+   # @driver = Selenium::WebDriver.for :firefox
     @driver.manage().window().maximize()
 
     @base_url = "http://uat-portal.blutrumpet.com/"
-    @accept_next_alert = true
-    @driver.manage.timeouts.implicit_wait = 30
-    @verification_errors = []
+    #@accept_next_alert = true
+    #@driver.manage.timeouts.implicit_wait = 30
+    #@verification_errors = []
     
 
   end
   
   after(:each) do
     @driver.quit
-    @verification_errors.should == []
+    #@verification_errors.should == []
   end
 
   it "test_landing_page_checking" do
