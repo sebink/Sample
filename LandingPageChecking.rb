@@ -31,14 +31,21 @@ describe "LandingPageChecking" do
 =end
 #............................For Local run ..........................
 
-    @driver = Selenium::WebDriver.for :firefox
-    @driver.manage().window().maximize()
+   # @driver = Selenium::WebDriver.for :firefox
+    #@driver.manage().window().maximize()
 
     @base_url = "http://uat-portal.blutrumpet.com/"
-    @accept_next_alert = true
-    @driver.manage.timeouts.implicit_wait = 30
-    @verification_errors = []
+    #@accept_next_alert = true
+    #@driver.manage.timeouts.implicit_wait = 30
+    #@verification_errors = []
     
+    DesiredCapabilities capability = DesiredCapabilities.firefox();
+#say you use the redhat5 label to indicate RHEL5 and the amd64 label to specify the architecture
+capability.setCapability("jenkins.label","redhat5 && amd64");
+# Say you want a specific node to thread your request, just specify the node name (it must be running a selenium configuration though)
+capability.setCapability("jenkins.nodeName","(master)");
+   
+   WebDriver @driver = new RemoteWebDriver(new URL("http://jenkins.mydomain:4444/wd/hub"), capability); 
 
   end
   
