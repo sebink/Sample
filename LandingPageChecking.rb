@@ -1,6 +1,6 @@
 require "rubygems"
-gem "rspec"
 gem "selenium-client"
+gem "rspec"
 require "selenium/client"
 #require "selenium/rspec/spec_helper"
 #require "spec/test/unit"
