@@ -32,7 +32,7 @@ describe "LandingPageChecking" do
     @verification_errors = []
 =end
 #............................For Local run ..........................
-    Selenium::WebDriver::Firefox::Binary.path = "/usr/bin/firefox"
+    Selenium::WebDriver::Firefox::Binary.path = "/usr/bin/firefox/firefox-bin"
   @driver = Selenium::WebDriver.for :firefox
     #@driver = Selenium::WebDriver.for :firefox
     #headless = Headless.new
