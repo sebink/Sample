@@ -1,5 +1,6 @@
 require "json"
 require 'rubygems'
+gem 'selenium-webdriver', '2.25.0'
 require "selenium-webdriver"
 require "rspec"
 require 'headless'
