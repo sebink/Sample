@@ -3,7 +3,7 @@ require 'rubygems'
 #gem 'selenium-webdriver', '2.25.0'
 require "selenium-webdriver"
 require "rspec"
-require 'headless'
+#$require 'headless'
 include RSpec::Expectations
 #require_relative './lib/common.rb'
 #require './spec/sauce_helper'
@@ -36,7 +36,7 @@ describe "LandingPageChecking" do
     #@driver = Selenium::WebDriver.for :firefox
     #headless = Headless.new
     #headless.start
-     Selenium::WebDriver::Firefox.path = "/usr/bin/firefox"
+     #Selenium::WebDriver::Firefox.path = "/usr/bin/firefox"
     @driver = Selenium::WebDriver.for :firefox
     #@driver.manage().window().maximize()
 
