@@ -31,10 +31,10 @@ describe "LandingPageChecking" do
     @verification_errors = []
 =end
 #............................For Local run ..........................
-    #path1= "/usr/bin/firefox"
-    #Selenium::WebDriver::Firefox.path =  path1
-    headless = Headless.new
-    headless.start
+    pSelenium::WebDriver::Firefox.path = "/usr/bin/firefox"
+    @driver = Selenium::WebDriver.for :firefox
+    #headless = Headless.new
+    #headless.start
     
     @driver = Selenium::WebDriver.for :firefox
     #@driver.manage().window().maximize()
@@ -48,7 +48,7 @@ describe "LandingPageChecking" do
   end
   
   after(:each) do
-    headless.destroy
+    #headless.destroy
     #@driver.quit
     #@verification_errors.should == []
   end
