@@ -32,12 +32,13 @@ describe "LandingPageChecking" do
     @verification_errors = []
 =end
 #............................For Local run ..........................
-    #Selenium::WebDriver::Firefox.path = "/usr/bin/firefox"
+    Selenium::WebDriver::Firefox::Binary.path = "/usr/bin/firefox"
+  @driver = Selenium::WebDriver.for :firefox
     #@driver = Selenium::WebDriver.for :firefox
     #headless = Headless.new
     #headless.start
     
-    @driver = Selenium::WebDriver.for :firefox
+    #@driver = Selenium::WebDriver.for :firefox
     #@driver.manage().window().maximize()
 
     @base_url = "http://uat-portal.blutrumpet.com/"
