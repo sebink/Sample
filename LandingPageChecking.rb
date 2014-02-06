@@ -30,7 +30,9 @@ describe "LandingPageChecking" do
     @verification_errors = []
 =end
 #............................For Local run ..........................
-
+    path1= "/Applications/Firefox.app/Contents/MacOS/firefox-bin"
+    Selenium::WebDriver::Firefox.path =  path1
+    
     @driver = Selenium::WebDriver.for :firefox
     @driver.manage().window().maximize()
 
@@ -43,8 +45,8 @@ describe "LandingPageChecking" do
   end
   
   after(:each) do
-    @driver.quit
-    @verification_errors.should == []
+    #@driver.quit
+    #@verification_errors.should == []
   end
 
   it "test_landing_page_checking" do
