@@ -30,9 +30,14 @@ describe "LandingPageChecking" do
     @verification_errors = []
 =end
 #............................For Local run ..........................
+<<<<<<< HEAD
     path1= "/usr/bin/"
     puts(path1)
     Selenium::WebDriver::Firefox.path =  path1
+=======
+    #path1= "/Applications/Firefox.app/Contents/MacOS/firefox-bin"
+    #Selenium::WebDriver::Firefox.path =  path1
+>>>>>>> 6d75851aa398392caed40834318eaf855d345e69
     
     @driver = Selenium::WebDriver.for :firefox
     @driver.manage().window().maximize()

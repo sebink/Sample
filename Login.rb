@@ -54,7 +54,9 @@ end
 
     puts('.....................Login checking.....................')
     @driver.get(@base_url + "/b/site/index.html")
-    @driver.find_element(:link, "LOG IN").click
+    sleep 10
+    @driver.find_element(:css, ".greyBtn.stndBtn.loginButton").click
+    
     @driver.find_element(:name, "client[email]").clear
     @driver.find_element(:name, "client[email]").send_keys "sebin@blutrumpet.com"
     @driver.find_element(:name, "client[password]").click
@@ -80,8 +82,8 @@ end
     @driver.find_element(:xpath,"//*[@id='pgWrap']/div[1]/div[2]/div/div[5]").click
     sleep 5
 
-    verify { (@driver.find_element(:xpath, "//*[@id='topBar']/div/div[1]/ul[2]/li[3]/a").text).should == "SIGN UP" }
-    verify { (@driver.find_element(:xpath, "//*[@id='topBar']/div/div[1]/ul[2]/li[4]/a").text).should == "LOG IN" }
+   # verify { (@driver.find_element(:xpath, "//*[@id='topBar']/div/div[1]/ul[2]/li[3]/a").text).should == "SIGN UP" }
+    #verify { (@driver.find_element(:xpath, "//*[@id='topBar']/div/div[1]/ul[2]/li[4]/a").text).should == "LOG IN" }
 
   end
 
