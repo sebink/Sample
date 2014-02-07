@@ -7,9 +7,9 @@ include RSpec::Expectations
 describe "Login" do
 
   before(:all) do
-=begin
-#...........................For SauceLab..........................
 
+#...........................For SauceLab..........................
+=begin
     caps = Selenium::WebDriver::Remote::Capabilities.firefox
     caps['platform'] = "Windows 8.1"
     caps['version'] = "26"
@@ -25,17 +25,20 @@ describe "Login" do
     @driver.manage.timeouts.implicit_wait = 30
     @verification_errors = []
 
-=end
 
+=end
 
 #............................For Local run ..........................
 
     @driver = Selenium::WebDriver.for :firefox
     @driver.manage().window().maximize()
+
     @base_url = "http://uat-portal.blutrumpet.com/"
     @accept_next_alert = true
     @driver.manage.timeouts.implicit_wait = 30
     @verification_errors = []
+    
+
 
 end
 
