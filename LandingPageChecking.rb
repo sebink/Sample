@@ -45,8 +45,8 @@ describe "LandingPageChecking" do
   end
   
   after(:each) do
-    #@driver.quit
-    #@verification_errors.should == []
+    @driver.quit
+    @verification_errors.should == []
   end
 
   it "test_landing_page_checking" do
