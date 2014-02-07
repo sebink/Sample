@@ -36,7 +36,7 @@ describe "LandingPageChecking" do
     #@driver = Selenium::WebDriver.for :firefox
     #headless = Headless.new
     #headless.start
-     #Selenium::WebDriver::Firefox.path = "/usr/bin/firefox"
+     Selenium::WebDriver::Firefox.path = "/usr/bin/firefox"
     @driver = Selenium::WebDriver.for :firefox
     #@driver.manage().window().maximize()
 
