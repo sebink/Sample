@@ -30,7 +30,10 @@ describe "LandingPageChecking" do
     @verification_errors = []
 =end
 #............................For Local run ..........................
-
+    path1= "/usr/bin/"
+    puts(path1)
+    Selenium::WebDriver::Firefox.path =  path1
+    
     @driver = Selenium::WebDriver.for :firefox
     @driver.manage().window().maximize()
 
@@ -43,8 +46,8 @@ describe "LandingPageChecking" do
   end
   
   after(:each) do
-    @driver.quit
-    @verification_errors.should == []
+    #@driver.quit
+    #@verification_errors.should == []
   end
 
   it "test_landing_page_checking" do
@@ -52,15 +55,9 @@ describe "LandingPageChecking" do
     puts('.....................Checking Landing Page.....................')
 
     @driver.get(@base_url + "/b/site/index.html")
-    
-    #sleep 10
-    puts(@driver.title)
-    
-    # (@driver.find_element(:xpath, "//*[@id='topBar']/div/div[1]/ul[2]/li[3]/a").text).should == "SIGN UP"
-puts(@driver.find_element(:xpath, "//*[@id='topBar']/div/div[1]/ul[2]/li[3]/a").text)
 
-   # verify { (@driver.find_element(:xpath, "//*[@id='topBar']/div/div[1]/ul[2]/li[3]/a").text).should == "SIGN UP" }
-    #verify { (@driver.find_element(:xpath, "//*[@id='topBar']/div/div[1]/ul[2]/li[4]/a").text).should == "LOG IN" }
+    verify { (@driver.find_element(:xpath, "//*[@id='topBar']/div/div[1]/ul[2]/li[3]/a").text).should == "SIGN UP" }
+    verify { (@driver.find_element(:xpath, "//*[@id='topBar']/div/div[1]/ul[2]/li[4]/a").text).should == "LOG IN" }
     end
   
   def element_present?(how, what)
