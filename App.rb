@@ -561,7 +561,7 @@ describe 'App' do
       @driver.find_element(:css, "button.grey.navItem").click
 
   end
-
+=begin
   it 'Should_Edit_AppTitle_While_Editing_The_App' do
 
     puts("...........................Should_Edit_AppTitle_While_Editing_The_App...................")
@@ -716,7 +716,7 @@ describe 'App' do
 
   end
 
-
+=end
 
   it "Should_Be_Able_To_Edit_AppName" do
 
