@@ -6,7 +6,7 @@ include RSpec::Expectations
 describe 'Login' do
 
   before(:all) do
-=caps = Selenium::WebDriver::Remote::Capabilities.firefox
+caps = Selenium::WebDriver::Remote::Capabilities.firefox
     caps['platform'] = "Windows 8.1"
     caps['version'] = "26"
     caps[:name] = "Advertiser Campaign "
