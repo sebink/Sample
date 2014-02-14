@@ -1,9 +1,9 @@
 require 'json'
 require 'selenium-webdriver'
 require "rspec"
-require 'spec'
+#require 'spec'
 include RSpec::Expectations
-require './lib/Common.rb'
+#require './lib/Common.rb'
 
 
 describe 'App' do

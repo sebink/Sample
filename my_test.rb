@@ -1,40 +1,19 @@
-require "json"
 require 'rubygems'
-#gem 'selenium-webdriver', '2.25.0'
-require "selenium-webdriver"
-require "rspec"
-#$require 'headless'
-include RSpec::Expectations
-#require_relative './lib/common.rb'
-#require './spec/sauce_helper'
+gem "test-unit"
+require 'test/unit'
+require 'selenium-webdriver'
 
 
-describe "LandingPageChecking" do
+class IndexPageChecking < Test::Unit::TestCase
 
-<<<<<<< HEAD
   def setup
     caps = Selenium::WebDriver::Remote::Capabilities.firefox
     caps.version = "5"
     caps.platform = :XP
     caps[:name] = "Testing Selenium  3"
-=======
-  before(:each) do
->>>>>>> 6d75851aa398392caed40834318eaf855d345e69
 
-    #...........................For SauceLab..........................
 
-=begin
-    caps = Selenium::WebDriver::Remote::Capabilities.firefox
-    caps['platform'] = "Windows 8.1"
-    caps['version'] = "26"
-    caps[:name] = "Landing Page"
 
-    @driver = Selenium::WebDriver.for(
-        :remote,
-        :url => "http://btsauce:3d284ce4-ce68-4128-acc2-da28928ff141@ondemand.saucelabs.com:80/wd/hub",
-        :desired_capabilities => caps)
-
-<<<<<<< HEAD
     @driver = Selenium::WebDriver.for(
         :remote,
         :url => "http://btsauce:3d284ce4-ce68-4128-acc2-da28928ff141@ondemand.saucelabs.com:80/wd/hub",
@@ -42,46 +21,22 @@ describe "LandingPageChecking" do
 
     #@driver.manage().window().maximize()
     #@base_url = "http://uat-portal.blutrumpet.com/"
-=======
-    @base_url = "http://uat-portal.blutrumpet.com/"
->>>>>>> 6d75851aa398392caed40834318eaf855d345e69
     @accept_next_alert = true
     @driver.manage.timeouts.implicit_wait = 30
     @verification_errors = []
-=end
-#............................For Local run ..........................
-  #@driver = Selenium::WebDriver.for :firefox
-    #@driver = Selenium::WebDriver.for :firefox
-    #headless = Headless.new
-    #headless.start
-     Selenium::WebDriver::Firefox.path = "/usr/bin/firefox"
-    @driver = Selenium::WebDriver.for :firefox
-    #@driver.manage().window().maximize()
-
-    @base_url = "http://uat-portal.blutrumpet.com/"
-    @accept_next_alert = true
-    @driver.manage.timeouts.implicit_wait = 30
-    @verification_errors = []
-    
-
-  end
-  
-  after(:each) do
-    #headless.destroy
-    #@driver.quit
-    #@verification_errors.should == []
   end
 
-  it "test_landing_page_checking" do
+  def teardown
+    @driver.quit
+    assert_equal [], @verification_errors
+  end
 
-    puts('.....................Checking Landing Page.....................')
+  def test_index_page_checking
+    @driver.navigate.to "http://uat-portal.blutrumpet.com/b/site/index.html"
+    verify { assert_equal "LOG IN", @driver.find_element(:xpath, "//*[@id='topBar']/div/div[1]/ul[2]/li[4]/a").text }
+    verify { assert_equal "SIGN UP", @driver.find_element(:xpath, "//*[@id='topBar']/div/div[1]/ul[2]/li[3]/a").text }
+  end
 
-    @driver.get(@base_url + "/b/site/index.html")
-
-    verify { (@driver.find_element(:xpath, "//*[@id='topBar']/div/div[1]/ul[2]/li[3]/a").text).should == "SIGN UP23" }
-    verify { (@driver.find_element(:xpath, "//*[@id='topBar']/div/div[1]/ul[2]/li[4]/a").text).should == "LOG IN" }
-    end
-  
   def element_present?(how, what)
     @driver.find_element(how, what)
     true
@@ -98,7 +53,7 @@ describe "LandingPageChecking" do
 
   def verify(&blk)
     yield
-  rescue ExpectationNotMetError => ex
+  rescue Test::Unit::AssertionFailedError => ex
     @verification_errors << ex
   end
 
