@@ -11,15 +11,6 @@ include RSpec::Expectations
 
 describe "LandingPageChecking" do
 
-<<<<<<< HEAD
-  def setup
-    caps = Selenium::WebDriver::Remote::Capabilities.firefox
-    caps.version = "5"
-    caps.platform = :XP
-    caps[:name] = "Testing Selenium  3"
-=======
-  before(:each) do
->>>>>>> 6d75851aa398392caed40834318eaf855d345e69
 
     #...........................For SauceLab..........................
 
