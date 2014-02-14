@@ -298,7 +298,7 @@ describe 'App' do
 
   end
 
-
+=begin
   #Should_Not_Create_App_When_AppURL_Is_Not_Valid_For_Selected_AppStore
   it 'Should_Not_Create_App_When_AppURL_Is_Not_Valid_For_Selected_AppStore' do
 
@@ -376,7 +376,7 @@ describe 'App' do
     (@driver.find_element(:xpath,"//*[@id='pgWrap']/div[3]/div[2]").text).should == GeneralErrorMessage
 
   end
-
+=end
   #Should_Not_Create_App_When_Icon_Unit_Has_Name_Only
   it 'Should_Not_Create_App_When_Icon_Unit_Has_Name_Only' do
 
