@@ -10,16 +10,16 @@ puts('Test Suite Changed --------Advertiser Campaign---------------')
   #Int test
   before(:all) do
 
-
-    @driver = Selenium::WebDriver.for :firefox
-    @driver.manage().window().maximize()
-    @base_url = 'http://uat-portal.blutrumpet.com/'
-    @accept_next_alert = true
-    @driver.manage.timeouts.implicit_wait = 30
-    @verification_errors = []
+ #   Selenium::WebDriver::Firefox.path = "/Applications/Firefox.app/Contents/MacOS/firefox-bin"
+    
+#  @driver = Selenium::WebDriver.for :firefox
+ #   @driver.manage().window().maximize()
+  #  @base_url = 'http://uat-portal.blutrumpet.com/'
+   # @accept_next_alert = true
+    #@driver.manage.timeouts.implicit_wait = 30
+    #@verification_errors = []
 
     
-=begin    
     caps = Selenium::WebDriver::Remote::Capabilities.firefox
     caps['platform'] = "Windows 8.1"
     caps['version'] = "26"
@@ -29,11 +29,11 @@ puts('Test Suite Changed --------Advertiser Campaign---------------')
         :remote,
         :url => "http://btsauce:3d284ce4-ce68-4128-acc2-da28928ff141@ondemand.saucelabs.com:80/wd/hub",
         :desired_capabilities => caps)
-=end
-   # @base_url = "http://uat-portal.blutrumpet.com/"
-   ## @accept_next_alert = true
-    #@driver.manage.timeouts.implicit_wait = 30
-    #@verification_errors = []
+        
+   @base_url = "http://uat-portal.blutrumpet.com/"
+   @accept_next_alert = true
+   @driver.manage.timeouts.implicit_wait = 30
+   @verification_errors = []
 
     CampaignName = 'Advertiser Camp '.concat(Array.new(10){rand(10).to_s(10)}.join)
 
