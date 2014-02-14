@@ -203,7 +203,7 @@ it 'Should_Not_Create_Campaign_When_AppName_Is_Empty' do
   sleep 10
   @driver.find_element(:xpath, "//div[@id='undefined-sticky-wrapper']/div/div[3]").click
   @driver.find_element(:xpath, "//div[@id='undefined-sticky-wrapper']/div/div[4]").click
-  @driver.find_element(:name, 'ui_ad_type_2').click
+
 
   @driver.find_element(:css, "button.greenLarge.submitForm").click
   sleep 20
