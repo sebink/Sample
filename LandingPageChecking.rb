@@ -2,6 +2,7 @@ require "json"
 require 'rubygems'
 require "selenium-webdriver"
 require "rspec"
+require 'headless'
 include RSpec::Expectations
 #require_relative './lib/common.rb'
 #require './spec/sauce_helper'
@@ -30,11 +31,18 @@ describe "LandingPageChecking" do
     @verification_errors = []
 =end
 #............................For Local run ..........................
+<<<<<<< HEAD
     #path1= "/Applications/Firefox.app/Contents/MacOS/firefox-bin"
     #Selenium::WebDriver::Firefox.path =  path1
+=======
+    Selenium::WebDriver::Firefox.path = "/Applications/Firefox.app/Contents/MacOS/firefox-bin"
+    #@driver = Selenium::WebDriver.for :firefox
+    #headless = Headless.new
+    #headless.start
+>>>>>>> b377bacb83882968dd5fa861ed5a1a00d3394a7c
     
     @driver = Selenium::WebDriver.for :firefox
-    @driver.manage().window().maximize()
+    #@driver.manage().window().maximize()
 
     @base_url = "http://uat-portal.blutrumpet.com/"
     @accept_next_alert = true
@@ -45,8 +53,14 @@ describe "LandingPageChecking" do
   end
   
   after(:each) do
+<<<<<<< HEAD
     @driver.quit
     @verification_errors.should == []
+=======
+    #headless.destroy
+    #@driver.quit
+    #@verification_errors.should == []
+>>>>>>> b377bacb83882968dd5fa861ed5a1a00d3394a7c
   end
 
   it "test_landing_page_checking" do

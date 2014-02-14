@@ -6,11 +6,14 @@ require 'selenium-webdriver'
 
 class IndexPageChecking < Test::Unit::TestCase
 
+<<<<<<< HEAD
   def setup
     caps = Selenium::WebDriver::Remote::Capabilities.firefox
     caps.version = "5"
     caps.platform = :XP
     caps[:name] = "Testing Selenium  3"
+=======
+>>>>>>> b377bacb83882968dd5fa861ed5a1a00d3394a7c
 
 
 
