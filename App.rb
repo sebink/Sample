@@ -98,7 +98,7 @@ describe 'App' do
 
   end
 
-
+=begin
   #Creation App landing page checking
   it 'Creation_Page_should_populate_All_The_Fields ' do
 
@@ -361,7 +361,7 @@ describe 'App' do
     (@driver.find_element(:xpath,"//*[@id='pgWrap']/div[3]/div[2]").text).should == GeneralErrorMessage
 
   end
-=end
+
   #Should_Not_Create_App_When_Icon_Unit_Has_Name_Only
   it 'Should_Not_Create_App_When_Icon_Unit_Has_Name_Only' do
 
@@ -489,7 +489,7 @@ describe 'App' do
 
   end
 
-
+=end
   it "Should_Create_App_When_All_The_Informations_Are_Valid" do
 
       puts("...........................Should_Create_App_When_All_The_Informations_Are_Valid...................")
